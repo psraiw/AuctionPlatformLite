@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Authentication {
     // Required of login/signup
-    private final String tableName = "auth";
+    private final String tableName = "users";
     private Statement statement = null;
 
     // Saving which user state
@@ -36,7 +36,7 @@ public class Authentication {
         try {
             ResultSet myResultSet = statement.executeQuery("Select * from " + tableName);
             while (myResultSet.next()) {
-                newID = myResultSet.getInt("userID");
+                newID = myResultSet.getInt("Uid");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -48,11 +48,11 @@ public class Authentication {
     public boolean login(int userID, String password) {
         try {
             ResultSet myResultSet = statement.executeQuery(
-                    "Select * from  " + tableName + " where userID=" + userID + " and pass='" + password + "';");
+                    "Select * from  " + tableName + " where Uid=" + userID + " and password='" + password + "';");
             boolean result = myResultSet.next();
             if (result) {
-                this.userID = myResultSet.getInt("userID");
-                this.userName = myResultSet.getString("userName");
+                this.userID = myResultSet.getInt("Uid");
+                this.userName = myResultSet.getString("username");
                 isLoggedIn = true;
             }
             return result;
