@@ -14,7 +14,7 @@ public class Item{
         this.durationInHrs = durationInHrs;
         this.minBid = minBid;
         this.maxBidderUid = maxBidderUid;
-        this.bidStatus = 1;//new bid active ho chuki hai 
+        this.bidStatus = 1;//new bid active ho chuki hai hello
         this.itemName = itemName;
         this.itemDesc = itemDesc;
         this.currentMaxBid = currentMaxBid;
